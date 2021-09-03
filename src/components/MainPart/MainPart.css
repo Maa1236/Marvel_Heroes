@@ -1,0 +1,19 @@
+.mainClass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.mainClass .allHeros{
+    width: 60%;
+}
+
+.mainClass .allHeros .card{
+    border: 1px solid gray;
+    padding: 1%;
+    width:25% ;
+}
+
+.mainClass .myTeam{
+    width: 30%;
+}
+
