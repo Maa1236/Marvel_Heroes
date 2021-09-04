@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import "./MainPart.css";
 import { HeroService } from "../../services/HeroService";
 import { MyTeam } from "../MyTeam/MyTeam";
 import { AllHeroes } from "../AllHeroes/AllHeroes";
 
 
-const MainPart = ({heroes, setHeroes}) => {
+const MainPart = () => {
+
+    const [heroes, setHeroes] = useState([]);
+
     useEffect(() => {
         
         HeroService().then((heroes) => {
