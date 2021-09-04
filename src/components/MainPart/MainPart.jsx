@@ -8,8 +8,9 @@ const MainPart = () => {
   const [heroes, setHeroes] = useState([]);
   const [selectedHeroes, setSelectedHeroes] = useState([]);
 
+  var myTeam;
   const addHeroToMyTeam = (hero) => {
-    let myTeam = [...selectedHeroes];
+    myTeam = [...selectedHeroes];
     let heroExists = myTeam.filter(item=>item.id === hero.id);
     if(heroExists && heroExists.length>0) {
         alert("Hero already selected");
@@ -17,10 +18,11 @@ const MainPart = () => {
         myTeam.push(hero);
         setSelectedHeroes(myTeam);
     }
-
-    console.log(myTeam);
   };
+
   console.log(selectedHeroes);
+  console.log(myTeam);
+
   useEffect(() => {
     HeroService().then((heroes) => {
       setHeroes(heroes);
@@ -32,7 +34,8 @@ const MainPart = () => {
   return (
     <div className="mainClass">
       <AllHeroes addHero={addHeroToMyTeam} arrayHeroes={arrayHeroes} />
-      <MyTeam selectedHeroes={selectedHeroes} />
+      {/* <MyTeam myTeam = {myTeam} */}
+      {/* selectedHeroes={selectedHeroes} /> */}
     </div>
   );
 };
