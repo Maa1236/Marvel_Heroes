@@ -1,23 +1,37 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import "./MainPart.css";
+import { HeroService } from "../../services/HeroService";
+import { MyTeam } from "../MyTeam/MyTeam";
+import { AllHeroes } from "../AllHeroes/AllHeroes";
+
 
 const MainPart = () => {
-  return (
-    <div className="mainClass">
-      <div className="allHeros">
-        <div class="card">
-          <h5 class="card-title">Card title</h5>
-          <img class="card-img-top" src="..." alt="slka " />
-          <div class="card-body">
-            <button class="card-link">Info</button>
-            <button class="card-link">Add</button>
-          </div>
-        </div>
-      </div>
 
-      <div className="myTeam"></div>
-    </div>
-  );
+    const [heroes, setHeroes] = useState([]);
+
+    useEffect(() => {
+        
+        HeroService().then((heroes) => {
+                setHeroes(heroes);
+            });
+        
+    },[setHeroes]);
+
+let arrayHeroes=heroes;
+
+    
+    return (
+      <div className="mainClass">
+          <AllHeroes 
+          arrayHeroes={arrayHeroes}
+                    />
+          <MyTeam />
+      </div>
+    );
+
+
+
+
 };
 
 export default MainPart;

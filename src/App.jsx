@@ -7,6 +7,7 @@ import MainPart from './components/MainPart/MainPart';
 
 function App() {
   
+
   return (
     <Fragment>
       <Header />
