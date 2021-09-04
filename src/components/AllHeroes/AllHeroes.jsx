@@ -1,22 +1,31 @@
 import './AllHeroes.css';
-import {Fragment} from 'react';
 import { HeroCard } from '../HeroCard/HeroCard';
 import { Search } from '../Search/Search';
+import {useState} from 'react';
 
 export const AllHeroes = ({arrayHeroes}) => {
 
-    let mappingTheCards=arrayHeroes.map((hero,index)=>{
+    const [searchTerm, setSearchTerm] = useState("");
+
+      let mappingTheCards = arrayHeroes.filter((elem) => {
+        let result = null;
+        if (searchTerm === "") {
+          result = elem;
+        } else if (elem.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+          result = elem;
+        }  return result;
+    }).map((hero,index)=>{
 
         return (
-        <Fragment >
-            <Search />
+        
             <HeroCard hero={hero}/>
-        </Fragment>
+        
         );
 
     });
 
     return (<div className="allHeros">
+         <Search setSearchTerm={setSearchTerm} />
                 { mappingTheCards }
             </div>)
 };
