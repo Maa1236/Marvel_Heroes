@@ -1,30 +1,22 @@
-import './AllHeroes.css'
+import './AllHeroes.css';
+import {Fragment} from 'react';
+import { HeroCard } from '../HeroCard/HeroCard';
+import { Search } from '../Search/Search';
 
 export const AllHeroes = ({arrayHeroes}) => {
 
     let mappingTheCards=arrayHeroes.map((hero,index)=>{
 
         return (
-            
-            
-            <div className="card">
-                    <h5 className="card-title">{hero.name}</h5>
-
-                    <img className="card-img-top" src={hero.image} alt="slka " />
-
-                    <div className="card-body">
-                        <button className="card-link">Info</button>
-                        <button className="card-link">Add</button>
-                    </div>
-            </div>
-
-
-            
+        <Fragment >
+            <Search />
+            <HeroCard hero={hero}/>
+        </Fragment>
         );
 
     });
 
     return (<div className="allHeros">
-                {mappingTheCards}
+                { mappingTheCards }
             </div>)
 };
