@@ -1,6 +1,6 @@
 import "./HeroCard.css";
 
-export const HeroCard = ({ hero, addHero }) => {
+export const HeroCard = ({ hero, addHeroToMyTeam }) => {
   
   return (
     <div className="card">
@@ -10,7 +10,7 @@ export const HeroCard = ({ hero, addHero }) => {
 
       <div className="card-body">
         <button className="card-link">Info</button>
-        <button className="card-link" onClick={() => addHero(hero)}>
+        <button className="card-link" onClick={() => addHeroToMyTeam(hero)}>
           Add
         </button>
       </div>

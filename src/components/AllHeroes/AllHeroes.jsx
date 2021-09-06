@@ -3,7 +3,7 @@ import { HeroCard } from '../HeroCard/HeroCard';
 import { Search } from '../Search/Search';
 import {useState} from 'react';
 
-export const AllHeroes = ({arrayHeroes, addHero}) => {
+export const AllHeroes = ({arrayHeroes, addHeroToMyTeam}) => {
 
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -19,7 +19,7 @@ export const AllHeroes = ({arrayHeroes, addHero}) => {
         return (
         
             <HeroCard 
-            addHero={addHero}
+            addHeroToMyTeam={addHeroToMyTeam}
             hero={hero}/>
         
         );

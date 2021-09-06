@@ -1,26 +1,25 @@
 import './MyTeam.css'
-import { ListOfMyHeroes } from '../ListOfMyHeroes/ListOfMyHeroes';
+import{MyTeamListItem} from '../MyTeamListItem/MyTeamListItem'
 
-/*var myTeamMapped;
-export const MyTeam = ({myTeam}) => {
-    console.log(myTeam)
-    if (myTeam && myTeam.length !== 0) {
-    myTeamMapped = myTeam.map((elem, index) => {
-        return (
-            <div className = "listItem">
-                <img src={elem.image}></img>
-                <h3>{elem.name}</h3>
-            </div>
+export const MyTeam = ({selectedHeroes}) => {
+
+    let myTeamMapped=selectedHeroes.map((hero,index)=>{
+
+        return(
+                <MyTeamListItem hero={hero} 
+                index={index}
+                />
         )
+
     })
-    console.log(myTeamMapped)
-    }
-*/
+
     return (
   
         <div className="myTeam">
             <h3>My Team</h3>
-            {myTeamMapped}
+            <ul>
+                {myTeamMapped}
+            </ul>
 
         </div>
     );

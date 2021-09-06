@@ -3,6 +3,7 @@ import "./MainPart.css";
 import { HeroService } from "../../services/HeroService";
 import { MyTeam } from "../MyTeam/MyTeam";
 import { AllHeroes } from "../AllHeroes/AllHeroes";
+//import { MyTeamListItem } from "../MyTeamListItem/MyTeamListItem";
 
 const MainPart = () => {
   const [heroes, setHeroes] = useState([]);
@@ -19,9 +20,15 @@ const MainPart = () => {
         setSelectedHeroes(myTeam);
     }
   };
+  // const removeHeroFromMyTeam=(hero)={
+  //   let deletedHero = selectedHeroes.filter(item => item.id !==hero.id);
+  //   setSelectedHeroes(deletedHero);
+  // }
+  
+
 
   console.log(selectedHeroes);
-  console.log(myTeam);
+  
 
   useEffect(() => {
     HeroService().then((heroes) => {
@@ -33,9 +40,9 @@ const MainPart = () => {
 
   return (
     <div className="mainClass">
-      <AllHeroes addHero={addHeroToMyTeam} arrayHeroes={arrayHeroes} />
-      {/* <MyTeam myTeam = {myTeam} */}
-      {/* selectedHeroes={selectedHeroes} /> */}
+      <AllHeroes addHeroToMyTeam={addHeroToMyTeam} arrayHeroes={arrayHeroes} />
+      <MyTeam 
+      selectedHeroes={selectedHeroes} />
     </div>
   );
 };

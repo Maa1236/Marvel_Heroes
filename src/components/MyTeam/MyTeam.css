@@ -1,3 +1,8 @@
 .mainClass .myTeam{
     width: 30%;
 }
+.mainClass .myTeam ul{
+    padding: 0px;
+    list-style: none;
+}
+
